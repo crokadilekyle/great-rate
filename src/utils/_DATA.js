@@ -28,11 +28,15 @@ let categories = {
         id: 'ixwyfdzuc9gg40756fua',
         name: 'Best Poop',
         description: 'Vote for the best poop photo',
+        submissions: ['rzd4et1iaonce3hxpvpfu9', 'yxl1w2bky5bei560w0zl88'],
+        timestamp: null,
     },
     eg381p6p9wwyil0o1jvd7a: {
         id: 'eg381p6p9wwyil0o1jvd7a',
         name: 'Cool Cars',
         description: 'Vote for the coolest car',
+        submissions: ['yxb4d8irh9fcr43nxgrh4f'],
+        timestamp: null,
     },
 }
 
@@ -46,7 +50,8 @@ submissions = {
             total: 10,
             upvotes: 7,
             downvotes: 3,
-        }
+        },
+        timestamp: null,
     },
     yxl1w2bky5bei560w0zl88: {
         id: 'yxl1w2bky5bei560w0zl88',
@@ -57,7 +62,8 @@ submissions = {
             total: 15,
             upvotes: 14,
             downvotes: 1,
-        }
+        },
+        timestamp: null,
     },
     yxb4d8irh9fcr43nxgrh4f: {
         id: 'yxb4d8irh9fcr43nxgrh4f',
@@ -68,9 +74,28 @@ submissions = {
             total: 7,
             upvotes: 2,
             downvotes: 5,
-        }
+        },
+        timestamp: null,
     },
 }
+
+export function _getUsers () {
+    return new Promise((res, rej) => {
+      setTimeout(() => res({...users}), 1000)
+    })
+  }
+  
+  export function _getCategories () {
+    return new Promise((res, rej) => {
+      setTimeout(() => res({...categories}), 1000)
+    })
+  }
+
+  export function _getSubmissions () {
+    return new Promise((res, rej) => {
+      setTimeout(() => res({...submissions}), 1000)
+    })
+  }
 
 function generateUID () {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
