@@ -8,8 +8,9 @@ let users = {
             "ixwyfdzuc9gg40756fua": 'rzd4et1iaonce3hxpvpfu9',
         },
         votes: {
-
+            "rzd4et1iaonce3hxpvpfu9": 1,
         },
+        timestamp: 1549830294630,
     },
     chisgossger: {
         id: 'chrisgossger',
@@ -19,7 +20,8 @@ let users = {
         submissions: {
             "ixwyfdzuc9gg40756fua": 'yxl1w2bky5bei560w0zl88',
             "eg381p6p9wwyil0o1jvd7a": 'yxb4d8irh9fcr43nxgrh4f',
-        }
+        },
+        timestamp: 1549830310899,
     }
 }
 
@@ -29,14 +31,14 @@ let categories = {
         name: 'Best Poop',
         description: 'Vote for the best poop photo',
         submissions: ['rzd4et1iaonce3hxpvpfu9', 'yxl1w2bky5bei560w0zl88'],
-        timestamp: null,
+        timestamp: 1549830350133,
     },
     eg381p6p9wwyil0o1jvd7a: {
         id: 'eg381p6p9wwyil0o1jvd7a',
         name: 'Cool Cars',
         description: 'Vote for the coolest car',
         submissions: ['yxb4d8irh9fcr43nxgrh4f'],
-        timestamp: null,
+        timestamp: 1549830321798,
     },
 }
 
@@ -51,7 +53,7 @@ submissions = {
             upvotes: 7,
             downvotes: 3,
         },
-        timestamp: null,
+        timestamp: 1549830350133,
     },
     yxl1w2bky5bei560w0zl88: {
         id: 'yxl1w2bky5bei560w0zl88',
@@ -63,7 +65,7 @@ submissions = {
             upvotes: 14,
             downvotes: 1,
         },
-        timestamp: null,
+        timestamp: 1549830321798,
     },
     yxb4d8irh9fcr43nxgrh4f: {
         id: 'yxb4d8irh9fcr43nxgrh4f',
@@ -75,7 +77,7 @@ submissions = {
             upvotes: 2,
             downvotes: 5,
         },
-        timestamp: null,
+        timestamp: 1549830321798,
     },
 }
 
