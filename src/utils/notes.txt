@@ -1,0 +1,34 @@
+1. How do we want to structure our data
+
+users = {
+    id: {
+        id,
+        name,
+        avatar,
+        categories: -> [id] (array: categories created)
+        submissions: {  (object: categories joined)
+            categoryid: submissionid, (categoryid is key, submissionid is key)
+        },
+        votes: { (categories voted on)
+            categoryid: vote (up or down)
+        }
+    }
+}
+categories = {
+    id: {
+        id,
+        name
+    }
+}
+
+submissions = {
+    id: {
+        id,
+        category: -> [id],
+        image,
+        votes:
+            total,
+            upvotes,
+            downvotes
+    }
+}
