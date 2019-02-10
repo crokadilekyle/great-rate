@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import CategoryList from './CategoryList'
 
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
 
 		return (
 			<div>
-				STARTER CODE
+				<CategoryList />
 			</div>
 		)
 	}
