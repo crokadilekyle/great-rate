@@ -1,6 +1,6 @@
 import { getInitialData } from '../utils/api'
 import { receiveUsers } from './users'
-import { receiveCategories } from './categores'
+import { receiveCategories } from './categories'
 import { receiveSubmissions } from './submissions'
 import { setAuthedUser } from './authedUser'
 
