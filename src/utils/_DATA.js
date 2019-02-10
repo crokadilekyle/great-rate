@@ -42,7 +42,7 @@ let categories = {
     },
 }
 
-submissions = {
+let submissions = {
     rzd4et1iaonce3hxpvpfu9: {
         id: 'rzd4et1iaonce3hxpvpfu9',
         category: 'ixwyfdzuc9gg40756fua',
