@@ -10,6 +10,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 50px;
+}
+
+.nav li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.nav li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bold;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -21,8 +47,16 @@ code {
   height: 100%;
 }
 
+.home-container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}   
+
 .category-list-container {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -55,12 +89,18 @@ code {
   border: 1.5px solid lightgray;
   border-radius: 5px;
 }
+.submission-container {
+  display: flex;
+  flex-direction: row;
+  margin: 50px auto;
+}
 
 .submission {
   display: flex;
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  margin: 0 15px;
 }
 
 .submission button {

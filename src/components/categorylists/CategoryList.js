@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import CategoryListItem from './CategoryListItem'
 
@@ -34,18 +35,18 @@ class CategoryList extends React.Component {
         } else if (showVoted === 'voted') {
             list = list.map((item) => item)
                 .filter((item) => {
-                    if(voted.includes(item)){
+                    if (voted.includes(item)) {
                         return item
                     }
                 })
         } else if (showVoted === 'notVoted') {
             list = list.map((item) => item)
-            .filter((item) => {
-                if(!voted.includes(item)){
-                    return item
-                }
-            })
-        } else{
+                .filter((item) => {
+                    if (!voted.includes(item)) {
+                        return item
+                    }
+                })
+        } else {
             alert('Somethings went wrong. Please try again.')
         }
 
@@ -76,9 +77,11 @@ class CategoryList extends React.Component {
                 </div>
                 <ul className='category-list' style={{ listStyle: 'none' }}>
                     {list.map((id) => (
-                        <li key={id}>
-                            <CategoryListItem id={id} />
-                        </li>
+                        <Link to={`/categories/${id}`}>
+                            <li key={id}>
+                                <CategoryListItem id={id} />
+                            </li>
+                        </Link>
                     ))}
                 </ul>
             </div>

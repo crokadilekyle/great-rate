@@ -27,12 +27,14 @@ class Submissions extends React.Component {
         const { entries, currentEntry } = this.state
         return (
             <div className='submission-container'>
-                <h1>Name: {name}</h1>
-                <p>Description: {description}</p>
-                <p>Entries: {totalEntries}</p>
-                <p>Created by: {owner}</p>
+                <div>
+                    <h3>Name: {name}</h3>
+                    <p>Description: {description}</p>
+                    <p>Entries: {totalEntries}</p>
+                    <p>Created by: {owner}</p>
+                </div>
                 <div className='submission'>
-                    <button 
+                    <button
                         onClick={() => this.viewNext('<')}>
                         Back
                     </button>
