@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import CategoryList from '../components/categorylists/CategoryList'
+import Submissions from '../components/submissions/Submission'
 
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
 			<div className='container'>
 				{this.props.loading === true
 				? null
-				:<CategoryList />}
+				:<Submissions match={{params: {id: 'nqqh43xjkiprtbq8rk68dj'}}} />}
 			</div>
 		)
 	}

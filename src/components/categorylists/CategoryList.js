@@ -15,7 +15,6 @@ class CategoryList extends React.Component {
     }
 
     toggleVoteView = (value) => {
-        console.log(value)
         this.setState(() => ({
             showVoted: value
         }))
