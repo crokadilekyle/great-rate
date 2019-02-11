@@ -9,10 +9,10 @@ const AUTHED_ID = 'mathewgries'
 export function handleInitialData(){
     return (dispatch) => {
         return getInitialData()
-            .then(({users, categories, submissios}) => {
+            .then(({users, categories, submissions}) => {
                 dispatch(receiveUsers(users))
                 dispatch(receiveCategories(categories))
-                dispatch(receiveSubmissions(submissios))
+                dispatch(receiveSubmissions(submissions))
                 dispatch(setAuthedUser(AUTHED_ID))
             })
             .catch((error) => console.error('handleInitialData:' ,error))

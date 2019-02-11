@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import CategoryList from './CategoryList'
+import CategoryList from '../components/categorylists/CategoryList'
 
 
 class App extends Component {
@@ -13,11 +13,19 @@ class App extends Component {
 	render() {
 
 		return (
-			<div>
-				<CategoryList />
+			<div className='container'>
+				{this.props.loading === true
+				? null
+				:<CategoryList />}
 			</div>
 		)
 	}
 }
 
-export default connect()(App)
+function mapStateToProps({ authedUser}){
+	return {
+		loading: authedUser === null
+	}
+}
+
+export default connect(mapStateToProps)(App)

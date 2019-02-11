@@ -32,3 +32,7 @@ submissions = {
             downvotes
     }
 }
+
+2. How to we want our UI to look
+    a. Category listing:
+        i. 
