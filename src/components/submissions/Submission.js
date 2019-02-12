@@ -23,7 +23,7 @@ class Submissions extends React.Component {
     }
 
     render() {
-        const { category, owner, name, description, totalEntries } = this.props
+        const { owner, name, description, totalEntries } = this.props
         const { entries, currentEntry } = this.state
         return (
             <div className='submission-container'>

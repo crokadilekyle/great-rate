@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 class SubmissionItem extends React.Component {
     render() {
-        const { submission, description, pic, submitter, upvotes, downvotes } = this.props
+        const { description, pic, submitter, upvotes, downvotes } = this.props
         return (
             <div>
                 <div className='submission-description'>
@@ -37,7 +37,6 @@ function mapStateToProps({ users, submissions }, { id }) {
     const pic = submission.imageURL
     const submitter = users[submission.owner].name
     return {
-        submission,
         description,
         pic,
         submitter,

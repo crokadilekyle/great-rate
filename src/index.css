@@ -120,3 +120,70 @@ code {
 .submission-image img {
   width: 100%;
 }
+
+.add-category-container {
+  display: flex;
+  flex-direction: column;
+  text-align:  center;
+  align-items: center;
+  margin: 50px auto;
+}
+
+.add-category-container label {
+  text-align: left;
+}
+
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  appearance: none;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border-radius: 5px;
+}
+
+.add-category-container label {
+  display: block;
+  margin-bottom: 0.25em;
+  font-size: 20px;
+}
+
+.add-category-container input, textarea {
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgray;
+  background-color: white;
+  font-size: 18px;
+}
+
+.btn {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  border-radius: 5px;
+  cursor: pointer;
+  background: #007bff;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+  color: white;
+}
+
+.btn:hover {
+  border-color: rgba(0,0,0,.5);
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}

@@ -15,6 +15,11 @@ function Nav(){
                         Categories
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to='/createcategory' activeClassName='active'>
+                        New Category
+                    </NavLink>
+                </li>
             </ul>
         </div>
     )

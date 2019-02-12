@@ -2,10 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function CategoryListItem({ item }) {
-    const { category, owner, submissionTotal, totalvotes, voted } = item
+    const {name, owner, submissionTotal, totalvotes, voted } = item
     return (
         <div className='category-list-item'>
-            <p>Category: {category.name}</p>
+            <p>Category: {name}</p>
             <p>Voted: {voted}</p>
             <p>Submissions: {submissionTotal}</p>
             <p>Total Votes: {totalvotes}</p>
@@ -30,13 +30,15 @@ function mapStateToProps({ authedUser, users, categories, submissions }, { id })
     const userVotes = submissionIDs.filter((subs) => {
         if(submissions[subs].upvotes.includes(authedUser) || submissions[subs].downvotes.includes(authedUser)){
             return subs
+        }else{
+            return null
         }
     })
 
     return {
         item: {
-            category,
             owner,
+            name: category.name,
             submissionTotal,
             upvotes,
             downvotes,

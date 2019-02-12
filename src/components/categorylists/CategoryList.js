@@ -21,9 +21,8 @@ class CategoryList extends React.Component {
         }))
     }
 
-
     render() {
-        const { allcategoryIDs, ownedCategories, voted } = this.props
+        const { allcategoryIDs, ownedCategories, voted, hasSubmits } = this.props
         const { showAll, showVoted } = this.state
 
         let list = showAll === true
@@ -76,13 +75,19 @@ class CategoryList extends React.Component {
                     </button>
                 </div>
                 <ul className='category-list' style={{ listStyle: 'none' }}>
-                    {list.map((id) => (
-                        <Link to={`/categories/${id}`}>
-                            <li key={id}>
-                                <CategoryListItem id={id} />
-                            </li>
-                        </Link>
-                    ))}
+                    {list.map((id) => {
+                        const url = hasSubmits === true 
+                            ? `/categories/${id}` 
+                            : `/categories/${id}/addsubmission`
+                            
+                        return (
+                            <Link to={url}>
+                                <li key={id}>
+                                    <CategoryListItem id={id} />
+                                </li>
+                            </Link>
+                        )
+                    })}
                 </ul>
             </div>
         )
@@ -102,11 +107,14 @@ function mapStateToProps({ authedUser, categories, submissions }) {
         }
     }).map((subs) => submissions[subs].category)
 
+    const hasSubmits = submissionIDs.length === 0 ? false : true
+
     console.log('Voted: ', voted)
     return {
         allcategoryIDs,
         ownedCategories,
         voted,
+        hasSubmits,
     }
 }
 
