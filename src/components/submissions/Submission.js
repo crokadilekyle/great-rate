@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SubmissionItem from './SubmissionItem'
 
@@ -23,7 +24,7 @@ class Submissions extends React.Component {
     }
 
     render() {
-        const { owner, name, description, totalEntries } = this.props
+        const { owner, name, description, totalEntries, categoryID } = this.props
         const { entries, currentEntry } = this.state
         return (
             <div className='submission-container'>
@@ -32,6 +33,13 @@ class Submissions extends React.Component {
                     <p>Description: {description}</p>
                     <p>Entries: {totalEntries}</p>
                     <p>Created by: {owner}</p>
+                    <div>
+                        <Link
+                            to={{ pathname: '/addsubmission', state: { categoryID: categoryID } }}
+                            className='btn'>
+                            Add Entry
+                        </Link>
+                    </div>
                 </div>
                 <div className='submission'>
                     <button
@@ -53,18 +61,14 @@ class Submissions extends React.Component {
 function mapStateToProps({ authedUser, submissions, categories, users }, { match }) {
 
     const { id } = match.params
-    const category = categories[id]
-    const owner = users[category.owner].name
-
     const entries = Object.keys(submissions)
-        .filter((subID) => submissions[subID].category === category.id)
+        .filter((subID) => submissions[subID].category === id)
 
-    console.log(entries)
     return {
-        category,
-        owner,
-        name: category.name,
-        description: category.description,
+        categoryID: id,
+        owner: users[categories[id].owner].name,
+        name: categories[id].name,
+        description: categories[id].description,
         totalEntries: entries.length,
         entries,
     }

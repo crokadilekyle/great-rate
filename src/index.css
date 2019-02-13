@@ -121,7 +121,7 @@ code {
   width: 100%;
 }
 
-.add-category-container {
+.form-container {
   display: flex;
   flex-direction: column;
   text-align:  center;
@@ -129,7 +129,7 @@ code {
   margin: 50px auto;
 }
 
-.add-category-container label {
+.form-container label {
   text-align: left;
 }
 
@@ -148,13 +148,13 @@ textarea {
   border-radius: 5px;
 }
 
-.add-category-container label {
+.form-container label {
   display: block;
   margin-bottom: 0.25em;
   font-size: 20px;
 }
 
-.add-category-container input, textarea {
+.form-container input, textarea {
   padding: 5px;
   border-width: 1px;
   border-style: solid;
@@ -186,4 +186,8 @@ textarea {
   outline: 0;
   font-weight: 700;
   border-width: 2px;
+}
+
+.addSubmission-container {
+
 }

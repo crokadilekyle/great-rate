@@ -108,7 +108,7 @@ function mapStateToProps({ authedUser, categories, submissions }) {
             }
         }).map((subs) => submissions[subs].category)
 
-    console.log(catsWithSubs)
+    
     return {
         allcategoryIDs,
         catsWithSubs,

@@ -16,16 +16,12 @@ function CategoryListItem({ item }) {
 
 function mapStateToProps({ authedUser, users, categories, submissions }, { id }) {
 
-    const category = categories[id]
-    const owner = users[category.owner].name
-
     const submissionIDs = Object.keys(submissions)
         .filter((subs) => submissions[subs].category === id)
     const submissionTotal = submissionIDs.length
 
     const upvotes = submissionIDs.reduce((total, key) => total + submissions[key].upvotes.length, 0)
     const downvotes = submissionIDs.reduce((total, key) => total + submissions[key].downvotes.length, 0)
-    const totalvotes = upvotes + downvotes
 
     const userVotes = submissionIDs.filter((subs) => {
         if(submissions[subs].upvotes.includes(authedUser) || submissions[subs].downvotes.includes(authedUser)){
@@ -34,15 +30,15 @@ function mapStateToProps({ authedUser, users, categories, submissions }, { id })
             return null
         }
     })
-
+    
     return {
         item: {
-            owner,
-            name: category.name,
+            owner: users[categories[id].owner].name,
+            name: categories[id].name,
             submissionTotal,
             upvotes,
             downvotes,
-            totalvotes,
+            totalvotes: upvotes + downvotes,
             voted: userVotes.length > 0 ? 'Yes' : 'No',
         }
     }

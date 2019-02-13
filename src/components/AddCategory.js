@@ -26,7 +26,7 @@ class AddCategory extends React.Component {
     
     render(){
         return(
-            <div className='add-category-container'>
+            <div className='form-container'>
                 <form className='category-form' onSubmit={this.handleSubmit}>
                     <h2>Create a new category</h2>
                     <label htmlFor='name'>Name:</label>
