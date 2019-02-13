@@ -22,7 +22,7 @@ class CategoryList extends React.Component {
     }
 
     render() {
-        const { allcategoryIDs, ownedCategories, voted, hasSubmits } = this.props
+        const { allcategoryIDs, ownedCategories, voted, catsWithSubs } = this.props
         const { showAll, showVoted } = this.state
 
         let list = showAll === true
@@ -46,7 +46,7 @@ class CategoryList extends React.Component {
                     }
                 })
         } else {
-            alert('Somethings went wrong. Please try again.')
+            alert('Something went wrong. Please try again.')
         }
 
         return (
@@ -76,13 +76,12 @@ class CategoryList extends React.Component {
                 </div>
                 <ul className='category-list' style={{ listStyle: 'none' }}>
                     {list.map((id) => {
-                        const url = hasSubmits === true 
-                            ? `/categories/${id}` 
-                            : `/categories/${id}/addsubmission`
-                            
+                        const url = catsWithSubs.includes(id)
+                            ? `/categories/${id}`
+                            : { pathname: '/addsubmission', state: { categoryID: id } }
                         return (
-                            <Link to={url}>
-                                <li key={id}>
+                            <Link key={id} to={url}>
+                                <li>
                                     <CategoryListItem id={id} />
                                 </li>
                             </Link>
@@ -96,25 +95,25 @@ class CategoryList extends React.Component {
 
 function mapStateToProps({ authedUser, categories, submissions }) {
     const allcategoryIDs = Object.keys(categories)
+    const catsWithSubs = allcategoryIDs.filter((catID) => {
+        return categories[catID].submissions.length > 0
+    })
     const ownedCategories = allcategoryIDs.filter((catIDs) => categories[catIDs].owner === authedUser)
 
-    const submissionIDs = Object.keys(submissions)
+    const voted = Object.keys(submissions)
         .map((subs) => subs)
+        .filter((subs) => {
+            if (submissions[subs].upvotes.includes(authedUser) || submissions[subs].downvotes.includes(authedUser)) {
+                return submissions[subs]
+            }
+        }).map((subs) => submissions[subs].category)
 
-    const voted = submissionIDs.filter((subs) => {
-        if (submissions[subs].upvotes.includes(authedUser) || submissions[subs].downvotes.includes(authedUser)) {
-            return submissions[subs]
-        }
-    }).map((subs) => submissions[subs].category)
-
-    const hasSubmits = submissionIDs.length === 0 ? false : true
-
-    console.log('Voted: ', voted)
+    console.log(catsWithSubs)
     return {
         allcategoryIDs,
+        catsWithSubs,
         ownedCategories,
         voted,
-        hasSubmits,
     }
 }
 

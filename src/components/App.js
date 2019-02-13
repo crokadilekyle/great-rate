@@ -27,9 +27,9 @@ class App extends Component {
 				:<div>
 					<Route path='/' exact component={Home}/>
 					<Route path='/categories' exact component={CategoryList}/>
-					<Route path='/categories/:id' exact component={Submissions}/>
+					<Route path='/categories/:id' component={Submissions}/>
 					<Route path='/createcategory' component={AddCategory} />
-					<Route path='/categories/:id/addsubmission' component={AddSubmission}/>
+					<Route path='/addsubmission' component={AddSubmission}/>
 				</div>}
 			</div>
 			</Router>
