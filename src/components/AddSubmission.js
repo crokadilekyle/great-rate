@@ -6,7 +6,11 @@ class AddSubmission extends React.Component {
         console.log(this.props.location.state)
         return (
             <div>
-                Add Submission
+                <form>
+                    <label>Testing:</label>
+                    <input type="text" placeholder='Enter info'/>
+                    <button type='submit'>Enter</button>
+                </form>
             </div>
         )
     }
