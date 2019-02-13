@@ -2,6 +2,7 @@ import {
     _getUsers,
     _getCategories,
     _getSubmissions,
+    _saveCategory,
 } from './_DATA'
 
 export function getInitialData () {
@@ -14,4 +15,9 @@ export function getInitialData () {
       categories,
       submissions,
     }))
+  }
+
+  export function saveCategory (category) {
+    return _saveCategory(category)
+      .then((category) => category)
   }

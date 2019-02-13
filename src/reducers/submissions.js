@@ -5,7 +5,7 @@ export default function submissions(state = {}, action){
         case RECEIVE_SUBMISSIONS:
             return {
                 ...state,
-                ...action.submissions
+                ...action.submissions,
             }
         default:
             return state
